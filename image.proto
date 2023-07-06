@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+import "google/protobuf/timestamp.proto";
+
+service ImageService {
+    rpc StreamImages (StreamRequest) returns (stream ImageResponse) {}
+}
+
+message StreamRequest {
+}
+
+message ImageResponse {
+    bytes image = 1;
+    int32 id = 2;
+    google.protobuf.Timestamp timestamp = 3;
+}
